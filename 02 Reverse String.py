@@ -13,7 +13,7 @@ def reverse_string_my(s: List[str]) -> List[str]:  # 내가 작성한 코드
     return rev
 
 
-def reverse_string_two_pointer(s: List[str]) -> None:
+def reverse_string_sol1(s: List[str]) -> None:  # using 'two pointer'
     left, right = 0, len(s) - 1
     while left < right:
         s[left], s[right] = s[right], s[left]
@@ -21,7 +21,7 @@ def reverse_string_two_pointer(s: List[str]) -> None:
         right -= 1
 
 
-def reverse_string_pythonic_way(s: List[str]) -> None:
+def reverse_string_sol2(s: List[str]) -> None:  # 'pythonic way'
     s.reverse()
 
 

@@ -4,7 +4,7 @@
 pal = "A man, a plan, a canal: Panama"
 
 
-def is_palindrome_list(s: str) -> bool:
+def is_palindrome_sol1(s: str) -> bool:  # 'list'
     strs = []
     for char in s:
         if char.isalnum():
@@ -17,7 +17,7 @@ def is_palindrome_list(s: str) -> bool:
     return True
 
 
-def is_palindrome_deque(s: str) -> bool:
+def is_palindrome_sol2(s: str) -> bool:  # 'deque'
     from typing import Deque  # 변수 선언을 위한 module
     import collections
 
@@ -34,7 +34,7 @@ def is_palindrome_deque(s: str) -> bool:
     return True
 
 
-def is_palindrome_slicing(s: str) -> bool:
+def is_palindrome_sol3(s: str) -> bool:  # 'slicing'
     import re
     s = s.lower()
     s = re.sub('[^a-z0-9]', '', s)  # regular expressions
@@ -42,6 +42,6 @@ def is_palindrome_slicing(s: str) -> bool:
     return s == s[::-1]  # reverse
 
 
-print(is_palindrome_list(pal))
-print(is_palindrome_deque(pal))
-print(is_palindrome_slicing(pal))
+print(is_palindrome_sol1(pal))
+print(is_palindrome_sol2(pal))
+print(is_palindrome_sol3(pal))
