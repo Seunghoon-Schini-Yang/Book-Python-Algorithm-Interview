@@ -11,3 +11,8 @@ print(hash(('s', 'b')))
 
 print(hash(True))
 print(hash(1))
+
+g = 'abcde'
+print(g[1:5])
+
+f = 'abbc'
