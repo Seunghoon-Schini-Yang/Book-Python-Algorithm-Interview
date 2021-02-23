@@ -15,14 +15,14 @@ def longest_palindrome_my(string: str) -> str:
     # 홀수 개 탐색
     while i < length - (max_longest + 1) / 2:
         j = 1
-        while i - j >= 0 and i + j < length:
-            if string[i - j] != string[i + j]:
+        while i-j >= 0 and i+j < length:
+            if string[i-j] != string[i+j]:
                 break
             else:
                 j += 1
-        if max_longest < j * 2 - 1:
-            max_longest = j * 2 - 1
-            longest_palindrome = string[i - j + 1:i + j]
+        if max_longest < j*2 - 1:
+            max_longest = j*2 - 1
+            longest_palindrome = string[i-j+1:i+j]
         i += 1
 
     i = 1
@@ -30,15 +30,15 @@ def longest_palindrome_my(string: str) -> str:
     # 짝수 개 탐색
     while i < length - (max_longest - 1) / 2:
         j = 1
-        if string[i - 1] == string[i]:
-            while i - j >= 1 and i + j < length:
-                if string[i - j - 1] != string[i + j]:
+        if string[i-1] == string[i]:
+            while i-j >= 1 and i+j < length:
+                if string[i-j-1] != string[i+j]:
                     break
                 else:
                     j += 1
-            if max_longest < j * 2:
-                max_longest = j * 2
-                longest_palindrome = string[i - j:i + j]
+            if max_longest < j*2:
+                max_longest = j*2
+                longest_palindrome = string[i-j:i+j]
         i += 1
 
     return longest_palindrome
@@ -51,10 +51,10 @@ print(longest_palindrome_my(test_case_2))  # 'dddd'
 def longest_palindrome_sol1(s: str) -> str:
     # two pointer
     def expand(left: int, right: int) -> str:
-        while left >= 0 and right <= len(s) and s[left] == s[right - 1]:
+        while left >= 0 and right <= len(s) and s[left] == s[right-1]:
             left -= 1
             right += 1
-        return s[left + 1:right - 1]
+        return s[left+1:right-1]
 
     # 특이 케이스 빠르게 리턴
     if len(s) < 2 or s == s[::-1]:
