@@ -62,6 +62,21 @@ def two_sum_sol4(nums: List[int], target: int) -> tuple:
 print(two_sum_sol4(test_case, test_target))
 
 
-# two pointer
+# two pointer : O(n)
+# Tim sort : O(nlogn)
+# 문제가 index 반환을 요구하기 때문에, 입력이 sorted list 가 아니면 사용 불가
 def two_sum_sol5(nums: List[int], target: int) -> tuple:
+    nums.sort() # 먼저
+    left = 0
+    right = len(nums) - 1
+    while right > left:
+        if nums[left] + nums[right] > target:
+            right -= 1
+        elif nums[left] + nums[right] < target:
+            left += 1
+        else:
+            return left, right
     return tuple()
+
+
+print(two_sum_sol5(test_case, test_target))

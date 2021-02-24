@@ -1,2 +1,4 @@
-a= [1, 5, 2]
-print(dict(enumerate(a)))
+a = [1, 2]
+b = a
+a.append(3)
+print(b)
