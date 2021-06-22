@@ -58,17 +58,17 @@ class PalindromeLinkedList:
 
     @staticmethod
     def sol_runner(head: ListNode) -> bool:
-        rev = None  # reversed linked list
-        slow = fast = head  # 두 개의 runner (init은 처음 값으로)
+        rev = None
+        slow = fast = head  # slow, fast 둘 다 head 로 할당
 
-        while fast and fast.next:  # fast running (slow runner가 딱 연결 리스트 중간까지 도달하도록 함)
-            fast = fast.next.next
-            rev, rev.next, slow = slow, rev, slow.next
+        while fast and fast.next:  # fast runner 가 끝에 도착할때까지 반복
+            fast = fast.next.next  # 노드 2 개씩 run
+            rev, rev.next, slow = slow, rev, slow.next  # 다중 할당 (Multiple Assignment)
 
-        if fast:  # 연결리스트가 홀수의 원소를 갖는 경우, 가운데 원소를 palindrome 체크에서 배제하도록 함.
+        if fast:  # 홀수 개일 때 slow runner 앞으로 한 칸 더
             slow = slow.next
 
-        # palindrome 여부 체크
+        # palindrome 체크
         while rev and slow.val == rev.val:
             rev, slow = rev.next, slow.next
 
@@ -77,16 +77,19 @@ class PalindromeLinkedList:
 
 a = PalindromeLinkedList()
 
-head2 = ListNode(2)
-head1 = ListNode(1, head2)
+node2 = ListNode(2)
+node1 = ListNode(1, node2)
 
-print(a.sol_list(head1))
-print(a.sol_deque(head1))
 
-ward1 = ListNode(1)
-ward2 = ListNode(2, ward1)
-node2 = ListNode(2, ward2)
+print(a.sol_list(node1))
+print(a.sol_deque(node1))
+print(a.sol_runner(node1))
+
+node4 = ListNode(1)
+node3 = ListNode(2, node4)
+node2 = ListNode(2, node3)
 node1 = ListNode(1, node2)
 
 print(a.sol_list(node1))
 print(a.sol_deque(node1))
+print(a.sol_runner(node1))

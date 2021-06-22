@@ -17,6 +17,7 @@ def array_partition_i_my(input_list: List[int]) -> int:
         i -= 2
     return n, sum_tot
 
+
 def array_partition_i_sol2(nums: List[int]) -> int:
     sum = 0
     nums.sort()
@@ -26,6 +27,7 @@ def array_partition_i_sol2(nums: List[int]) -> int:
             sum += n
 
     return sum
+
 
 def array_partition_i_sol3(nums: List[int]) -> int:
     # pythonic way
